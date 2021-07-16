@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import FirebaseContext from "../context/firebase";
 import * as ROUTES from "../constants/routes";
-import doesUsernameExist from "../services/firebase";
+import { doesUsernameExist } from "../services/firebase";
 
 export default function SignUp() {
   const history = useHistory();
@@ -26,13 +26,10 @@ export default function SignUp() {
           .auth()
           .createUserWithEmailAndPassword(emailAddress, password);
 
-        // authentication
-        // -> emailAddress & password & username (displayName)
         await createdUserResult.user.updateProfile({
           displayName: username,
         });
 
-        // firebase user collection (create a document)
         await firebase
           .firestore()
           .collection("users")
