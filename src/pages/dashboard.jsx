@@ -1,10 +1,14 @@
 import React from "react";
+import { Header, Timeline, Sidebar } from "../components";
 
 export default function dashboard() {
   return (
     <>
-      <div>instagram</div>
-      <body>this is body</body>
+      <Header />
+      <div className="grid">
+        <Timeline />
+        <Sidebar />
+      </div>
     </>
   );
 }
