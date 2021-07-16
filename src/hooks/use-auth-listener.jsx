@@ -22,4 +22,6 @@ export default function useAuthListener() {
       listner();
     };
   }, [firebase]);
+
+  return { user };
 }
